@@ -59,7 +59,7 @@ class Program
                         MessageBox.Show("Displaying additional information!", "Display");
                         break;
 
-                    case "View":
+                    case "Info":
                         MessageBox.Show(User.ToString(), "User Information");
                         break;
 

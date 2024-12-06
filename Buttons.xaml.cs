@@ -26,7 +26,7 @@ namespace BusApp
 
         private void UserInfo_Click(object sender, RoutedEventArgs e)
         {
-            SelectedOption = "User Info";
+            SelectedOption = "Info";
             this.DialogResult = true;
         }
 
