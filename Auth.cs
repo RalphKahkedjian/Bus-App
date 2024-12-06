@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Threading;
 
-namespace YandexTaxi
+namespace YandexBus
 {
     public class Auth
     {
@@ -98,12 +98,5 @@ namespace YandexTaxi
             string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
             return Regex.IsMatch(email, emailPattern);              // We googled it
         }
-    }
-
-    // Enum for Gender
-    public enum Gender
-    {
-        male,
-        female
     }
 }

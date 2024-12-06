@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 using BusApp;
-using YandexTaxi;
+using YandexBus;
 
 class Program
 {
@@ -15,7 +15,7 @@ class Program
         int age;
         Gender gender;
 
-        Console.WriteLine("\tBus Taxi App\n");
+        Console.WriteLine("\tBus Yandex App\n");
         Console.WriteLine("\nAuthentication");
         Console.WriteLine("-----------------------\n");
 
@@ -75,7 +75,7 @@ class Program
             }
             else
             {
-                MessageBox.Show("Exiting...", "Exit");
+                MessageBox.Show("Bye! Enjoy your day. 😃", "Exit");
                 break;  // Exit the loop and program
             }
         }
