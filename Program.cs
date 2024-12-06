@@ -5,7 +5,7 @@ using YandexTaxi;
 
 class Program
 {
-    [STAThread] // Required for WPF MessageBox
+    [STAThread] // Required to be able to use the event handles in the Buttons.xaml file
     static void Main()
     {
         // Authentication attributes
@@ -75,7 +75,6 @@ class Program
             }
             else
             {
-                // User closed the dialog without selection
                 MessageBox.Show("Exiting...", "Exit");
                 break;  // Exit the loop and program
             }

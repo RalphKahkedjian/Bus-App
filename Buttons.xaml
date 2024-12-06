@@ -11,7 +11,7 @@
         Background="LightBlue">
 
     <Window.Resources>
-        <!-- Button Hover Effects -->
+
         <Style TargetType="{x:Type Button}">
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
