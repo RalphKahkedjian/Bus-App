@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Windows;
+using System.Threading;
 
 namespace YandexTaxi
 {
@@ -14,26 +16,70 @@ namespace YandexTaxi
         // Constructor for Auth class with age check
         public Auth(string n, string e, string p, int a)
         {
-            this.name = n;
-            this.email = e;
-            this.password = p;
-            this.age = a;
-
-            if (a < 18)
+            try
             {
-                int future = 18 - a;  // Calculated when can the user have access to our app ( just for fun )
-                MessageBox.Show($"Sorry {n}, Minors aren't allowed to use Yandex app\nMaybe see you {future} year/s later !");
-                Environment.Exit(0);  // The user can't continue accessing our app if he's a minor
+                this.name = n;
+                this.email = e;
+                this.password = p;
+                this.age = a;
+
+                Thread.Sleep(200);
+                Console.Clear();
+
+                Console.WriteLine("\nRegistering...");
+                Thread.Sleep(1500);
+
+                // Validate email format
+                if (!IsValidEmail(e))
+                {
+                    throw new FormatException("Invalid email format. Please provide a valid email address.");
+                }
+
+                // Age validation
+                if (a < 18)
+                {
+                    int future = 18 - a; // Calculate when the user can access the app
+                    MessageBox.Show($"Sorry {n}, Minors aren't allowed to use Yandex app\nSee you in {future} year(s)!");
+                    Environment.Exit(0);
+                }
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Registration Error");
+                Environment.Exit(0);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Unexpected Error: {ex.Message}", "Error");
+                Environment.Exit(0);
+            }
+            finally
+            {
+                Console.WriteLine("Thank you for choosing our App. Have a great day!");
             }
 
             MessageBox.Show($"Welcome {n} to our App\n", "Success");
         }
 
         // Overloaded constructor with gender
-        public Auth(string n, string e, string p, int a, Gender g)
+        public Auth(string n, string e, string p, int a, int g)
             : this(n, e, p, a)
         {
-            this.gender = g;
+            try
+            {
+                // Validate gender input
+                if (g != 0 && g != 1)
+                {
+                    throw new ArgumentOutOfRangeException("Gender must be 0 (male) or 1 (female).");
+                }
+
+                this.gender = (Gender)g;
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Gender Selection Error");
+                Environment.Exit(0); // Exit on invalid gender
+            }
         }
 
         // Overriding ToString method to display user details
@@ -44,6 +90,13 @@ namespace YandexTaxi
                 $"Password: {password}\n" +
                 $"Age: {age}\n" +
                 $"Gender: {gender}\n";
+        }
+
+        // Method to validate email format
+        private bool IsValidEmail(string email)
+        {
+            string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            return Regex.IsMatch(email, emailPattern);              // We googled it
         }
     }
 
