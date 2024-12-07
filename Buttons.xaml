@@ -8,7 +8,7 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         AllowsTransparency="True"
-        Background="LightBlue">
+        Background="LightSeaGreen">
 
     <Window.Resources>
 
@@ -26,12 +26,12 @@
     </Window.Resources>
 
     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="212">
-        <TextBlock Text="Yandex Taxi App" FontSize="16" FontWeight="Bold" Margin="0,0,0,10" TextAlignment="Center"/>
+        <TextBlock Text="Yandex App" FontSize="16"  FontWeight="Bold" Margin="0,0,0,10" TextAlignment="Center"/>
 
         <Button Content="Book A Ride" Width="200" Margin="0,5" Click="Book_Click" Background="black" Foreground="White" Height="25" />
         <Button Content="Display History" Width="200" Margin="0,5" Click="Display_Click" Background="black" Foreground="White" Height="24"/>
         <Button Content="User Information" Width="200" Margin="0,5" Click="UserInfo_Click" Background="black" Foreground="White" Height="25"/>
         <Button Content="Close Program" Width="204" Margin="0,5" Click="CloseProgram_Click" Background="black" Foreground="White" Height="25" RenderTransformOrigin="0.493,0.149"/>
-        <TextBlock Padding="2.5" Margin="5" Width="auto"><Run Text="Developed By Ralph Kahkedjian &amp; Ryan Kenaan"/></TextBlock>
+        <TextBlock Padding="2.5" Margin="5" Width="178"><Run Text="Developed By Ralph Kahkedjian"/></TextBlock>
     </StackPanel>
 </Window>

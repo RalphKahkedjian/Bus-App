@@ -3,15 +3,14 @@ using System.Collections.Generic;
 
 namespace YandexBus
 {
-    // Created static class BusManager
     public static class BusManager
     {
-        // Declared Dictionary of key Location and value Bus ( which we will initialize the constructor.
+        // Declared Dictionary of key Location and value Bus
         public static Dictionary<Location, List<Bus>> busesByLocation = new Dictionary<Location, List<Bus>>();
 
         public static void InitializeBuses()
         {
-            // If user chooses Yerevan as his/her locationn
+            // Initialize Yerevan buses
             List<Bus> yerevanBuses = new List<Bus>
             {
                 new TourBus("Arman", 101, 40, Status.Available, Location.Yerevan, 5, "Luxury"),
@@ -22,7 +21,7 @@ namespace YandexBus
                 new PublicTransportBus("Mery", 106, 45, Status.Available, Location.Yerevan, 5, "Economy")
             };
 
-            // If user chooses Tbilisi as his/her location
+            // Initialize Tbilisi buses
             List<Bus> tbilisiBuses = new List<Bus>
             {
                 new PublicTransportBus("Giorgi", 201, 45, Status.Available, Location.Tbilisi, 4, "Standard"),
@@ -33,7 +32,7 @@ namespace YandexBus
                 new PublicTransportBus("Davit", 206, 40, Status.FullyBooked, Location.Tbilisi, 4, "Standard")
             };
 
-            // If user chooses Moscow as his/her locationn
+            // Initialize Moscow buses
             List<Bus> moscowBuses = new List<Bus>
             {
                 new TourBus("Sergey", 301, 50, Status.Available, Location.Moscow, 8, "Luxury"),
@@ -44,7 +43,7 @@ namespace YandexBus
                 new PublicTransportBus("Oleg", 306, 45, Status.Available, Location.Moscow, 6, "Economy")
             };
 
-            // for each location enum chosen, it will display depending on the location chosen
+            // Store buses for each location
             busesByLocation[Location.Yerevan] = yerevanBuses;
             busesByLocation[Location.Tbilisi] = tbilisiBuses;
             busesByLocation[Location.Moscow] = moscowBuses;
@@ -52,7 +51,7 @@ namespace YandexBus
 
         public static List<Bus> GetBusesByLocationAndType(Location location, string busType)
         {
-            // Check if the location exists in the dictionary
+            // Check if the location exists in the dictionary (since the key in that case is location)
             if (!busesByLocation.ContainsKey(location))
             {
                 Console.WriteLine($"Error: No buses found for the location {location}.");
@@ -61,11 +60,11 @@ namespace YandexBus
 
             List<Bus> availableBuses = new List<Bus>();
 
-            // For each bus in that location chosen by the user...
-
+            // Filter buses based on the selected bus type
             foreach (var bus in busesByLocation[location])
             {
-                // this checks if the string input is tour or public
+                // Since we declared a ternary operator in the Booking, if 0 = 'tour else 'public')
+
                 if (busType.Equals("tour", StringComparison.OrdinalIgnoreCase) && bus is TourBus ||
                     busType.Equals("public", StringComparison.OrdinalIgnoreCase) && bus is PublicTransportBus)
                 {

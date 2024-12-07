@@ -57,20 +57,16 @@ class Program
                 {
                     // TBS
                     case "Book":
-                        MessageBox.Show("Book", "Book");
+                        Booking.BookBus();
                         break;
 
                     // TBS
                     case "Display":
-                        MessageBox.Show("Displaying additional information!", "Display");
+                        Booking.ViewBookingHistory();
                         break;
 
                     case "Info":
                         MessageBox.Show(User.ToString(), "User Information");
-                        break;
-
-                    case "History":
-                        Console.WriteLine("\nBooking History:");
                         break;
 
                     case "Close":
