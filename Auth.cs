@@ -71,6 +71,7 @@ namespace YandexBus
                 if (g != 0 && g != 1)
                 {
                     throw new ArgumentOutOfRangeException("Gender must be 0 (male) or 1 (female).");
+                    // This error means if the input is out of range (the range in this case is [0,1]
                 }
 
                 this.gender = (Gender)g;
@@ -92,11 +93,11 @@ namespace YandexBus
                 $"Gender: {gender}\n";
         }
 
-        // Method to validate email format
+        // bool function to validate email format using Regex (We googled it)
         private bool IsValidEmail(string email)
         {
             string emailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
-            return Regex.IsMatch(email, emailPattern);              // We googled it
+            return Regex.IsMatch(email, emailPattern);              
         }
     }
 }

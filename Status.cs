@@ -2,7 +2,9 @@
 {
     public enum Status
     {
-        Booked,
+        FullyBooked,
         Available
     }
 }
+
+// Bus can be booked or available

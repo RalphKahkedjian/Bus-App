@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using BusApp;
 using YandexBus;
@@ -34,11 +35,14 @@ class Program
         Console.WriteLine("\nEnter your Gender: ");
         Console.WriteLine("0. Male");
         Console.WriteLine("1. Female");
-        int genderInput = Convert.ToInt32(Console.ReadLine());
+        int genderInput = Convert.ToInt32(Console.ReadLine());      // Convert to gender string to int using Int32
         gender = (Gender)genderInput;
 
         // Create an Auth object
         Auth User = new Auth(name, email, password, age, (int)gender);
+
+        // Create a list to store booking history
+        List<string> bookingHistory = new List<string>();
 
         // Display a MessageBox to prompt user actions
         while (true)
@@ -52,7 +56,7 @@ class Program
                 switch (dialog.SelectedOption)
                 {
                     case "Book":
-                        MessageBox.Show("Booking process started!", "Book");
+                        MessageBox.Show("Book", "Book");
                         break;
 
                     case "Display":
@@ -61,6 +65,15 @@ class Program
 
                     case "Info":
                         MessageBox.Show(User.ToString(), "User Information");
+                        break;
+
+                    case "History":
+                        // Display booking history
+                        Console.WriteLine("\nBooking History:");
+                        foreach (var entry in bookingHistory)
+                        {
+                            Console.WriteLine(entry);
+                        }
                         break;
 
                     case "Close":
