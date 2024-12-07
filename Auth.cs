@@ -59,7 +59,7 @@ namespace YandexBus
             }
             finally
             {
-                Console.WriteLine("Thank you for choosing our app, enjoy Yandex Taxi App");
+                Console.WriteLine("Thank you for choosing our app, enjoy Yandex App");
             }
 
             MessageBox.Show($"Welcome {n} to our App\n", "Success");
