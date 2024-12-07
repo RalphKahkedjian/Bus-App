@@ -2,6 +2,8 @@
 
 namespace BusApp
 {
+
+    // I used and searched for how to design the buttons ( just for fun and learned new stuff )
     public partial class CustomDialog : Window
     {
         public string SelectedOption { get; private set; }

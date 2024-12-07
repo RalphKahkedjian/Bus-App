@@ -7,3 +7,5 @@
         Moscow
     }
 }
+
+// Enum for location

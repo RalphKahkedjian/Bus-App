@@ -47,7 +47,7 @@ class Program
         // Display a MessageBox to prompt user actions
         while (true)
         {
-            // Show the custom dialog
+            // Show the custom dialog (buttons)
             var dialog = new CustomDialog();
             bool? result = dialog.ShowDialog();
 
@@ -55,10 +55,12 @@ class Program
             {
                 switch (dialog.SelectedOption)
                 {
+                    // TBS
                     case "Book":
                         MessageBox.Show("Book", "Book");
                         break;
 
+                    // TBS
                     case "Display":
                         MessageBox.Show("Displaying additional information!", "Display");
                         break;
@@ -68,12 +70,7 @@ class Program
                         break;
 
                     case "History":
-                        // Display booking history
                         Console.WriteLine("\nBooking History:");
-                        foreach (var entry in bookingHistory)
-                        {
-                            Console.WriteLine(entry);
-                        }
                         break;
 
                     case "Close":

@@ -3,12 +3,15 @@ using System.Collections.Generic;
 
 namespace YandexBus
 {
+    // Created static class BusManager
     public static class BusManager
     {
+        // Declared Dictionary of key Location and value Bus ( which we will initialize the constructor.
         public static Dictionary<Location, List<Bus>> busesByLocation = new Dictionary<Location, List<Bus>>();
 
         public static void InitializeBuses()
         {
+            // If user chooses Yerevan as his/her locationn
             List<Bus> yerevanBuses = new List<Bus>
             {
                 new TourBus("Arman", 101, 40, Status.Available, Location.Yerevan, 5, "Luxury"),
@@ -19,6 +22,7 @@ namespace YandexBus
                 new PublicTransportBus("Mery", 106, 45, Status.Available, Location.Yerevan, 5, "Economy")
             };
 
+            // If user chooses Tbilisi as his/her location
             List<Bus> tbilisiBuses = new List<Bus>
             {
                 new PublicTransportBus("Giorgi", 201, 45, Status.Available, Location.Tbilisi, 4, "Standard"),
@@ -29,6 +33,7 @@ namespace YandexBus
                 new PublicTransportBus("Davit", 206, 40, Status.FullyBooked, Location.Tbilisi, 4, "Standard")
             };
 
+            // If user chooses Moscow as his/her locationn
             List<Bus> moscowBuses = new List<Bus>
             {
                 new TourBus("Sergey", 301, 50, Status.Available, Location.Moscow, 8, "Luxury"),
@@ -39,6 +44,7 @@ namespace YandexBus
                 new PublicTransportBus("Oleg", 306, 45, Status.Available, Location.Moscow, 6, "Economy")
             };
 
+            // for each location enum chosen, it will display depending on the location chosen
             busesByLocation[Location.Yerevan] = yerevanBuses;
             busesByLocation[Location.Tbilisi] = tbilisiBuses;
             busesByLocation[Location.Moscow] = moscowBuses;
@@ -59,6 +65,7 @@ namespace YandexBus
 
             foreach (var bus in busesByLocation[location])
             {
+                // this checks if the string input is tour or public
                 if (busType.Equals("tour", StringComparison.OrdinalIgnoreCase) && bus is TourBus ||
                     busType.Equals("public", StringComparison.OrdinalIgnoreCase) && bus is PublicTransportBus)
                 {

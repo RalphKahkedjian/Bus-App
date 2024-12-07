@@ -2,8 +2,10 @@
 
 namespace YandexBus
 {
+    // Inherited from base class (Bus ) and also the interface
     public class PublicTransportBus : Bus, IBusAttributes
     {
+        // Same implementations as the TourBus
         public int DriverExperience { get; set; } 
         public string BusType { get; set; } 
 

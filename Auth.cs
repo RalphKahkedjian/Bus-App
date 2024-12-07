@@ -5,8 +5,11 @@ using System.Threading;
 
 namespace YandexBus
 {
+
+    // Class Auth
     public class Auth
     {
+        //Declared its attributes and constructor
         public string name { get; set; }
         public string email { get; set; }
         public string password { get; set; }
@@ -16,6 +19,7 @@ namespace YandexBus
         // Constructor for Auth class with age check
         public Auth(string n, string e, string p, int a)
         {
+            // used try catch and finally, it will catch depend on the error that the user will type
             try
             {
                 this.name = n;
@@ -70,8 +74,8 @@ namespace YandexBus
                 // Validate gender input
                 if (g != 0 && g != 1)
                 {
-                    throw new ArgumentOutOfRangeException("Gender must be 0 (male) or 1 (female).");
                     // This error means if the input is out of range (the range in this case is [0,1]
+                    throw new ArgumentOutOfRangeException("Gender must be 0 (male) or 1 (female).");
                 }
 
                 this.gender = (Gender)g;
